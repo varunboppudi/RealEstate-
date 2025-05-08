@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tara | Luxury Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-slider">
+        <div class="hero-slides">
+          
+          <div class="hero-slide">
+            <img class="hero-media" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="Luxury 2">
+            <div class="hero-overlay"></div>
+          </div>
+          <div class="hero-slide">
+            <img class="hero-media" src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=1200&q=80" alt="Luxury 3">
+            <div class="hero-overlay"></div>
+          </div>
+          <div class="hero-slide">
+            <img class="hero-media" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80" alt="Luxury 4">
+            <div class="hero-overlay"></div>
+          </div>
+          <div class="hero-slide">
+            <img class="hero-media" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Luxury 5">
+            <div class="hero-overlay"></div>
+          </div>
+        </div>
+        <div class="container hero-slider-content">
+          <div class="hero-content">
+            <h1>TIMELESS ELEGANCE</h1>
+            <p>SOPHISTICATED LIVING IN CHARLOTTE'S MOST COVETED ADDRESS</p>
+            <div class="hero-buttons">
+              <a href="contact.html" class="btn">SCHEDULE A SHOWING</a>
+              <a href="#" class="btn btn-outline">DOWNLOAD BROCHURE</a>
+            </div>
+          </div>
+          <div class="hero-slider-controls">
+            <button class="slider-btn prev-slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next-slide"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </section>
+      
+      
+
+    <!-- Main Content Section -->
+    <section class="main-content">
+        <div class="container">
+            <div class="content-left">
+                <h2>EXCLUSIVE<br>LUXURY<br>RESIDENCES</h2>
+                <p class="elegant-text">WELCOME TO TARA ESTATES</p>
+                <p class="description-text">Where timeless architecture meets modern sophistication. Our meticulously crafted residences offer unparalleled luxury in Charlotte's most prestigious neighborhood.</p>
+                <a href="residences.html" class="btn btn-secondary">EXPLORE RESIDENCES</a>
+            </div>
+            <div class="content-right">
+                <div class="image-grid">
+                    <div class="image-top">
+                        <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury kitchen">
+                    </div>
+                    <div class="image-bottom">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury home">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+        <div class="container">
+            <h2>THE TARA EXPERIENCE</h2>
+            <p class="experience-text">
+                Tara Estates represents the pinnacle of refined living in downtown Charlotte. Each residence is thoughtfully designed with premium finishes, expansive views, and impeccable attention to detail. Our residents enjoy world-class amenities, personalized concierge services, and the privilege of calling Charlotte's most distinguished address home.
+            </p>
+            <div class="feature-highlights">
+                <div class="feature">
+                    <i class="fas fa-building"></i>
+                    <h3>ARCHITECTURAL EXCELLENCE</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-swimming-pool"></i>
+                    <h3>PREMIUM AMENITIES</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>PRIME LOCATION</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+</script>
+
+    <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                // Now set active state
+                const currentPath = window.location.pathname;
+                const filename = currentPath.split('/').pop();
+                
+                setTimeout(() => {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href === filename || (filename === '' && href === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                    
+                    // Mobile menu toggle
+                    document.querySelector('.menu-toggle').addEventListener('click', function() {
+                        document.querySelector('.left-nav').classList.toggle('show');
+                        document.querySelector('.right-nav').classList.toggle('show');
+                    });
+                }, 100);
+            });
+    </script>
+    <script src="slider.js"></script>
+
+</body>
+</html>

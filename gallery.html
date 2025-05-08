@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Tara</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80');">
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <h1>CURATED GALLERY</h1>
+            <p>Explore our collection of exquisite spaces designed for those who appreciate refined living</p>
+        </div>
+    </section>
+    
+    
+
+    <!-- Gallery Introduction -->
+    <section class="gallery-intro">
+        <div class="container">
+            <div class="intro-text">
+                <h2>THE ESSENCE OF LUXURY</h2>
+                <p>Our gallery showcases the exceptional craftsmanship, premium materials, and thoughtful design that define Tara Estates. Each image captures the unique character and sophisticated aesthetic that makes our residences truly exceptional.</p>
+                <p>Browse through these carefully selected photographs to experience the elegance, comfort, and attention to detail that await you at Tara.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-grid-container">
+        <div class="container">
+            <div class="gallery-categories">
+                <button class="gallery-filter active" data-filter="all">ALL</button>
+                <button class="gallery-filter" data-filter="interiors">INTERIORS</button>
+                <button class="gallery-filter" data-filter="exteriors">EXTERIORS</button>
+                <button class="gallery-filter" data-filter="amenities">AMENITIES</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="interiors">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury Living Room">
+                    <div class="gallery-caption">
+                        <h3>Elegant Living Space</h3>
+                        <p>Expansive windows and refined materials</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="interiors">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Designer Kitchen">
+                    <div class="gallery-caption">
+                        <h3>Chef's Kitchen</h3>
+                        <p>Premium appliances and custom cabinetry</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="exteriors">
+                    <img src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Exterior View">
+                    <div class="gallery-caption">
+                        <h3>Architectural Excellence</h3>
+                        <p>Contemporary design meets timeless elegance</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="amenities">
+                    <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Infinity Pool">
+                    <div class="gallery-caption">
+                        <h3>Rooftop Infinity Pool</h3>
+                        <p>Panoramic city views and private cabanas</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="interiors">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Master Bedroom">
+                    <div class="gallery-caption">
+                        <h3>Master Suite</h3>
+                        <p>Serene retreats with bespoke furnishings</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="exteriors">
+                    <img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Evening Facade">
+                    <div class="gallery-caption">
+                        <h3>Evening Ambiance</h3>
+                        <p>Sophisticated lighting enhances architectural details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+</script>
+
+    
+    <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                // Now initialize scripts
+                setTimeout(initScripts, 100);
+            });
+            
+        function initScripts() {
+            // Mobile menu toggle
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.left-nav').classList.toggle('show');
+                document.querySelector('.right-nav').classList.toggle('show');
+            });
+            
+            // Set active nav
+            const currentPath = window.location.pathname;
+            const filename = currentPath.split('/').pop();
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === filename) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Gallery filtering
+            document.querySelectorAll('.gallery-filter').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.gallery-filter').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filter gallery items
+                    document.querySelectorAll('.gallery-item').forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+    </script>
+</body>
+</html>

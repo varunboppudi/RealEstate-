@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Tara</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="contact.js" defer></script>
+</head>
+<body>
+    <!-- Include Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <h1>CONTACT US</h1>
+            <p>We welcome your inquiries and look forward to assisting you with your real estate journey</p>
+        </div>
+    </section>
+
+    <!-- Contact Introduction -->
+    <section class="contact-intro">
+        <div class="container">
+            <div class="intro-text">
+                <h2>PERSONALIZED ATTENTION</h2>
+                <p class="elegant-subheading">Your exclusive residence awaits</p>
+                <p>At Tara Estates, we pride ourselves on providing exceptional service tailored to your unique needs. Whether you're interested in touring a residence, discussing investment opportunities, or learning more about our amenities, our dedicated team is here to assist you every step of the way.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-form-container">
+                    <h2>INQUIRE ABOUT RESIDENCES</h2>
+                    <p class="form-description">Please complete the form below, and a member of our team will contact you promptly.</p>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="interest">Primary Interest <span class="required">*</span></label>
+                                <select id="interest" required>
+                                    <option value="">Please select...</option>
+                                    <option value="purchase">Purchase Inquiry</option>
+                                    <option value="tour">Schedule a Tour</option>
+                                    <option value="information">Request Information</option>
+                                    <option value="investment">Investment Opportunity</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message <span class="required">*</span></label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn">SUBMIT INQUIRY</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-info-card">
+                        <h2>VISIT OUR SALES GALLERY</h2>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-info-text">
+                                <h3>Location</h3>
+                                <p>444 Main Street<br>Charlotte, NC 28202</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="contact-info-text">
+                                <h3>Hours</h3>
+                                <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: By appointment</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <h2>CONNECT WITH US</h2>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-info-text">
+                                <h3>Phone</h3>
+                                <p>555-555-5555</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-info-text">
+                                <h3>Email</h3>
+                                <p>info@taraestate.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3259.0378032711465!2d-80.8430813!3d35.227087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8856a02df8b4545f%3A0x2f3559d5b391c1cb!2sUptown%20Charlotte%2C%20Charlotte%2C%20NC%2028202!5e0!3m2!1sen!2sus!4v1715177154028!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    <script>
+        fetch('navbar.html')
+          .then(response => response.text())
+          .then(data => { document.getElementById('navbar-placeholder').innerHTML = data; });
+      </script>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+          .then(response => response.text())
+          .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+      </script>
+      
+</body>
+</html>

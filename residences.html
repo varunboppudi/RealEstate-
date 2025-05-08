@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Residences | Tara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80');">
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <h1>RESIDENCES</h1>
+      <p>Discover a curated selection of luxury homes, each designed for comfort, elegance, and modern living.</p>
+    </div>
+  </section>
+
+  <section class="residence-listings container">
+    <div class="residence-card">
+      <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=600&q=80" alt="Modern Villa">
+      <div class="residence-card-content">
+        <h2>Modern Villa</h2>
+        <p>4 Beds • 5 Baths • 4,500 sqft</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+    </div>
+    <div class="residence-card">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Penthouse Suite">
+      <div class="residence-card-content">
+        <h2>Penthouse Suite</h2>
+        <p>3 Beds • 4 Baths • 3,200 sqft</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+    </div>
+    <div class="residence-card">
+      <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80" alt="Skyline Apartment">
+      <div class="residence-card-content">
+        <h2>Skyline Apartment</h2>
+        <p>2 Beds • 2 Baths • 2,000 sqft</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+</script>
+
+
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        setTimeout(() => {
+          document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.left-nav').classList.toggle('show');
+            document.querySelector('.right-nav').classList.toggle('show');
+          });
+        }, 100);
+      });
+  </script>
+</body>
+</html>

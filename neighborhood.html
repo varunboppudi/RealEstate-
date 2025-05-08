@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neighborhood | Tara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=1200&q=80');">
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <h1>NEIGHBORHOOD</h1>
+      <p>Explore the vibrant downtown Charlotte area, with top dining, shopping, and parks just steps away.</p>
+    </div>
+  </section>
+
+  <section class="neighborhood-content container">
+    <div class="neighborhood-feature">
+      <div class="neighborhood-feature-img">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Local Park">
+      </div>
+      <div class="neighborhood-feature-text">
+        <h2>Central Park</h2>
+        <p>Enjoy green spaces, jogging trails, and family-friendly recreation in the heart of the city.</p>
+      </div>
+    </div>
+    <div class="neighborhood-feature">
+      <div class="neighborhood-feature-img">
+        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80" alt="Dining">
+      </div>
+      <div class="neighborhood-feature-text">
+        <h2>Fine Dining</h2>
+        <p>Discover world-class restaurants and cozy cafes within walking distance.</p>
+      </div>
+    </div>
+    <div class="neighborhood-feature">
+      <div class="neighborhood-feature-img">
+        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" alt="Shopping">
+      </div>
+      <div class="neighborhood-feature-text">
+        <h2>Shopping District</h2>
+        <p>Luxury boutiques, designer brands, and artisanal shops await you.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+</script>
+
+
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        setTimeout(() => {
+          document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.left-nav').classList.toggle('show');
+            document.querySelector('.right-nav').classList.toggle('show');
+          });
+        }, 100);
+      });
+  </script>
+</body>
+</html>
